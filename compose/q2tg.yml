@@ -12,7 +12,7 @@ services:
       - postgresql:/var/lib/postgresql/data
   napcat:
     container_name: napcat
-    image: mlikiowa/napcat-docker:latest
+    image: koiuta/napcat-docker:latest
     restart: always
     environment:
       - NAPCAT_UID=${NAPCAT_UID:-1000}

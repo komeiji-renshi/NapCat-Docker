@@ -1,4 +1,5 @@
 # docker-compose.yml
+# 自托管：将 YOUR_DOCKERHUB_USERNAME 替换为你的 Docker Hub 用户名
 # NAPCAT_UID=$(id -u) NAPCAT_GID=$(id -g) docker-compose -f ./compose/astrbot.yml up -d
 services:
   napcat:
@@ -10,7 +11,7 @@ services:
       - 6099:6099
     container_name: napcat
     restart: always
-    image: mlikiowa/napcat-docker:latest
+    image: koiuta/napcat-docker:latest
     volumes:
       - ./data:/AstrBot/data
       - ./napcat/config:/app/napcat/config
@@ -21,7 +22,7 @@ services:
   astrbot:
     environment:
       - TZ=Asia/Shanghai
-    image: soulter/astrbot:latest
+    image: koiuta/astrbot:latest
     container_name: astrbot
     restart: always
     ports:

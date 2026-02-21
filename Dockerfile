@@ -1,4 +1,5 @@
-FROM mlikiowa/napcat-docker:base
+# 自托管：改为你的 Docker Hub 用户名/napcat-docker（与 base workflow 推送的镜像一致）
+FROM koiuta/napcat-docker:base
 
 RUN useradd --no-log-init -d /app napcat
 
