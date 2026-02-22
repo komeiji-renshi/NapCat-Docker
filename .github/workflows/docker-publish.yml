@@ -32,12 +32,15 @@ jobs:
           DOCKER_REPO: ${{ env.DOCKER_REPO }}
           NAPCATQQ_REPO: ${{ env.NAPCATQQ_REPO }}
         run: |
-          TAG=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ env.NAPCATQQ_REPO }}/releases/latest" | jq -r '.tag_name')
+          TAG=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ env.NAPCATQQ_REPO }}/releases/latest" | jq -r '.tag_name // empty')
+          TAGS="--tag ${DOCKER_REPO}:latest"
+          if [ -n "$TAG" ]; then
+            TAGS="--tag ${DOCKER_REPO}:$TAG $TAGS"
+          fi
           docker buildx build \
             --output "type=image,push=true" \
             --platform linux/amd64,linux/arm64 \
-            --tag ${DOCKER_REPO}:$TAG \
-            --tag ${DOCKER_REPO}:latest \
+            $TAGS \
             --file ./Dockerfile \
             .
       - name: Docker Hub logout
