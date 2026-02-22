@@ -6,7 +6,7 @@ version="$2"
 # 设置输出目录
 output_dir="."
 # NapCatQQ 仓库：改为你的 fork 则使用自构建的 NapCat
-NAPCATQQ_REPO="${NAPCATQQ_REPO:-koiuta/NapCatQQ}"
+NAPCATQQ_REPO="${NAPCATQQ_REPO:-komeiji-renshi/NapCatQQ}"
 # 下载release
 curl -s -X GET \
     -H "Authorization: token $token" \

@@ -6,7 +6,7 @@ on:
 # 自托管：将下面两行改为你的 Docker Hub 用户名和 NapCatQQ fork（如 YOUR_GITHUB/NapCatQQ）
 env:
   DOCKER_REPO: koiuta/napcat-docker
-  NAPCATQQ_REPO: koiuta/NapCatQQ
+  NAPCATQQ_REPO: komeiji-renshi/NapCatQQ
 
 jobs:
   publish-dockerhub:
